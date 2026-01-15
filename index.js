@@ -16,6 +16,8 @@ console.log(chalk.yellow("🚀 Starting server..."));
 
 const __dirname = process.cwd();
 const server = http.createServer();
+server.keepAliveTimeout = 0;   // disable idle kill
+server.headersTimeout = 0;     // disable header timeout
 const app = express();
 const bareServer = createBareServer("/fq/");
 const PORT = process.env.PORT || 8080;
