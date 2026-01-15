@@ -144,4 +144,8 @@ server.on("listening", () => {
   console.log(chalk.green(`🌍 Server is running on http://localhost:${PORT}`));
 });
 
+server.on("connection", socket => {
+  socket.setTimeout(0);
+});
+
 server.listen({ port: PORT });
